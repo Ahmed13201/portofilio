@@ -3,8 +3,7 @@ import Experience from "./Experience/Experience.js";
 
 const experience = new Experience(document.querySelector(".experience-canvas"));
 // scrollNavigation.js
-
-export function initScrollNavigation() {
+document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".page-section");
   let currentSection = 0;
   let isScrolling = false;
@@ -41,4 +40,4 @@ export function initScrollNavigation() {
 
   window.addEventListener("wheel", handleScroll, { passive: false });
   window.addEventListener("keydown", handleKeyDown);
-}
+});
