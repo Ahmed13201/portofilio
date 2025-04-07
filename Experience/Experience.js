@@ -14,6 +14,26 @@ import World from "./World/World.js";
 import Controls from "./World/Controls.js";
 
 export default class Experience {
+    document.addEventListener('keydown', (e) => {
+  switch (e.key) {
+    case 'ArrowDown':
+      // Scroll down or go to next section
+      document.getElementById('section-2').scrollIntoView({ behavior: 'smooth' });
+      break;
+    case 'ArrowUp':
+      // Scroll up or go to previous section
+      document.getElementById('section-1').scrollIntoView({ behavior: 'smooth' });
+      break;
+    case 'ArrowRight':
+      // Custom behavior for right arrow
+      console.log('Right arrow pressed');
+      break;
+    case 'ArrowLeft':
+      // Custom behavior for left arrow
+      console.log('Left arrow pressed');
+      break;
+  }
+});
     static instance;
     constructor(canvas) {
         if (Experience.instance) {
