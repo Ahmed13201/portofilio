@@ -14,7 +14,6 @@ import World from "./World/World.js";
 import Controls from "./World/Controls.js";
 
 export default class Experience {
-    document.addEventListener('keydown', (e) => {
     static instance;
     constructor(canvas) {
         if (Experience.instance) {
