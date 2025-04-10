@@ -333,7 +333,10 @@ export default class Preloader extends EventEmitter {
     }
 
     onScroll(e) {
-        if (e.deltaY > 0) {
+        if (e.deltaY > 0 || this.scrollDirection === "down") {
+            this.removeEventListeners();
+            this.playSecondIntro();
+        } else if (e.deltaY < 0 || this.scrollDirection === "up") {
             this.removeEventListeners();
             this.playSecondIntro();
         }
@@ -347,17 +350,28 @@ export default class Preloader extends EventEmitter {
         let currentY = e.touches[0].clientY;
         let difference = this.initalY - currentY;
         if (difference > 0) {
-            console.log("swipped up");
+            console.log("swiped up");
             this.removeEventListeners();
             this.playSecondIntro();
         }
         this.intialY = null;
     }
 
+    onKeyDown(e) {
+        if (e.key === "ArrowDown") {
+            this.scrollDirection = "down";
+            this.onScroll();
+        } else if (e.key === "ArrowUp") {
+            this.scrollDirection = "up";
+            this.onScroll();
+        }
+    }
+
     removeEventListeners() {
         window.removeEventListener("wheel", this.scrollOnceEvent);
         window.removeEventListener("touchstart", this.touchStart);
         window.removeEventListener("touchmove", this.touchMove);
+        window.removeEventListener("keydown", this.keyDownEvent); // Remove keydown event listener
     }
 
     async playIntro() {
@@ -367,9 +381,11 @@ export default class Preloader extends EventEmitter {
         this.scrollOnceEvent = this.onScroll.bind(this);
         this.touchStart = this.onTouch.bind(this);
         this.touchMove = this.onTouchMove.bind(this);
+        this.keyDownEvent = this.onKeyDown.bind(this); // Bind keydown event
         window.addEventListener("wheel", this.scrollOnceEvent);
         window.addEventListener("touchstart", this.touchStart);
         window.addEventListener("touchmove", this.touchMove);
+        window.addEventListener("keydown", this.keyDownEvent); // Add keydown event listener
     }
     async playSecondIntro() {
         this.moveFlag = false;
