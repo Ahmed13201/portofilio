@@ -333,45 +333,30 @@ export default class Preloader extends EventEmitter {
     }
 
     onScroll(e) {
-        if (e.deltaY > 0 || this.scrollDirection === "down") {
+        if (e.deltaY > 0) {
             this.removeEventListeners();
             this.playSecondIntro();
-        } else if (e.deltaY < 0 || this.scrollDirection === "up") {
-            this.removeEventListeners();
-            this.playSecondIntro();
-        }
-    }
-
-    onTouch(e) {
-        this.initalY = e.touches[0].clientY;
-    }
-
-    onTouchMove(e) {
-        let currentY = e.touches[0].clientY;
-        let difference = this.initalY - currentY;
-        if (difference > 0) {
-            console.log("swiped up");
+        } else if (e.deltaY < 0) {
             this.removeEventListeners();
             this.playSecondIntro();
         }
-        this.intialY = null;
     }
 
     onKeyDown(e) {
         if (e.key === "ArrowDown") {
-            this.scrollDirection = "down";
-            this.onScroll();
+            e.preventDefault(); // Prevent default scroll behavior
+            this.removeEventListeners();
+            this.playSecondIntro();
         } else if (e.key === "ArrowUp") {
-            this.scrollDirection = "up";
-            this.onScroll();
+            e.preventDefault(); // Prevent default scroll behavior
+            this.removeEventListeners();
+            this.playSecondIntro();
         }
     }
 
     removeEventListeners() {
         window.removeEventListener("wheel", this.scrollOnceEvent);
-        window.removeEventListener("touchstart", this.touchStart);
-        window.removeEventListener("touchmove", this.touchMove);
-        window.removeEventListener("keydown", this.keyDownEvent); // Remove keydown event listener
+        window.removeEventListener("keydown", this.keyDownEvent); // Remove keydown listener
     }
 
     async playIntro() {
@@ -379,14 +364,12 @@ export default class Preloader extends EventEmitter {
         await this.firstIntro();
         this.moveFlag = true;
         this.scrollOnceEvent = this.onScroll.bind(this);
-        this.touchStart = this.onTouch.bind(this);
-        this.touchMove = this.onTouchMove.bind(this);
         this.keyDownEvent = this.onKeyDown.bind(this); // Bind keydown event
+
         window.addEventListener("wheel", this.scrollOnceEvent);
-        window.addEventListener("touchstart", this.touchStart);
-        window.addEventListener("touchmove", this.touchMove);
-        window.addEventListener("keydown", this.keyDownEvent); // Add keydown event listener
+        window.addEventListener("keydown", this.keyDownEvent); // Add keydown listener
     }
+
     async playSecondIntro() {
         this.moveFlag = false;
         await this.secondIntro();
