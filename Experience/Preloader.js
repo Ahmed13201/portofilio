@@ -223,7 +223,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     ">-0.5"
                 )
@@ -234,7 +234,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     ">-0.4"
                 )
@@ -245,7 +245,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     ">-0.3"
                 )
@@ -256,7 +256,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     ">-0.2"
                 )
@@ -267,7 +267,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     ">-0.1"
                 )
@@ -278,7 +278,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     ">-0.1"
                 )
@@ -287,7 +287,7 @@ export default class Preloader extends EventEmitter {
                     y: 1,
                     z: 1,
                     ease: "back.out(2.2)",
-                    duration: 0.5,
+                    duration: 0.3,
                 })
                 .set(this.roomChildren.mini_floor.scale, {
                     x: 1,
@@ -301,7 +301,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     "chair"
                 )
@@ -312,7 +312,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.3,
                     },
                     "chair"
                 )
