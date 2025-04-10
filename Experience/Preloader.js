@@ -33,7 +33,6 @@ export default class Preloader extends EventEmitter {
 
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
-        console.log(this.roomChildren);
     }
 
     firstIntro() {
@@ -56,12 +55,12 @@ export default class Preloader extends EventEmitter {
                         y: 1.4,
                         z: 1.4,
                         ease: "back.out(2.5)",
-                        duration: 0.7,
+                        duration: 1,
                     })
                     .to(this.room.position, {
                         x: -1,
                         ease: "power1.out",
-                        duration: 0.7,
+                        duration: 1,
                     });
             } else {
                 this.timeline
@@ -70,18 +69,18 @@ export default class Preloader extends EventEmitter {
                         y: 1.4,
                         z: 1.4,
                         ease: "back.out(2.5)",
-                        duration: 0.7,
+                        duration: 1,
                     })
                     .to(this.room.position, {
                         z: -1,
                         ease: "power1.out",
-                        duration: 0.7,
+                        duration: 1,
                     });
             }
             this.timeline
                 .to(".intro-text .animatedis", {
                     yPercent: 0,
-                    stagger: 0.05,
+                    stagger: 0.1,
                     ease: "back.out(1.7)",
                 })
                 .to(
@@ -111,7 +110,7 @@ export default class Preloader extends EventEmitter {
                     ".intro-text .animatedis",
                     {
                         yPercent: 100,
-                        stagger: 0.05,
+                        stagger: 0.1,
                         ease: "back.in(1.7)",
                     },
                     "fadeout"
@@ -130,6 +129,7 @@ export default class Preloader extends EventEmitter {
                         y: 0,
                         z: 0,
                         ease: "power1.out",
+                        duration: 1.5,
                     },
                     "same"
                 )
@@ -176,7 +176,7 @@ export default class Preloader extends EventEmitter {
                         x: 0,
                         y: 0,
                         z: 0,
-                        duration: 1,
+                        duration: 1.5,
                     },
                     "introtext"
                 )
@@ -184,7 +184,7 @@ export default class Preloader extends EventEmitter {
                     ".hero-main-title .animatedis",
                     {
                         yPercent: 0,
-                        stagger: 0.07,
+                        stagger: 0.1,
                         ease: "back.out(1.7)",
                     },
                     "introtext"
@@ -193,7 +193,7 @@ export default class Preloader extends EventEmitter {
                     ".hero-main-description .animatedis",
                     {
                         yPercent: 0,
-                        stagger: 0.07,
+                        stagger: 0.1,
                         ease: "back.out(1.7)",
                     },
                     "introtext"
@@ -202,7 +202,7 @@ export default class Preloader extends EventEmitter {
                     ".first-sub .animatedis",
                     {
                         yPercent: 0,
-                        stagger: 0.07,
+                        stagger: 0.1,
                         ease: "back.out(1.7)",
                     },
                     "introtext"
@@ -211,7 +211,7 @@ export default class Preloader extends EventEmitter {
                     ".second-sub .animatedis",
                     {
                         yPercent: 0,
-                        stagger: 0.07,
+                        stagger: 0.1,
                         ease: "back.out(1.7)",
                     },
                     "introtext"
@@ -223,7 +223,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     ">-0.5"
                 )
@@ -234,7 +234,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     ">-0.4"
                 )
@@ -245,7 +245,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     ">-0.3"
                 )
@@ -256,7 +256,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     ">-0.2"
                 )
@@ -267,7 +267,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     ">-0.1"
                 )
@@ -278,7 +278,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     ">-0.1"
                 )
@@ -287,7 +287,7 @@ export default class Preloader extends EventEmitter {
                     y: 1,
                     z: 1,
                     ease: "back.out(2.2)",
-                    duration: 0.5,
+                    duration: 0.7,
                 })
                 .set(this.roomChildren.mini_floor.scale, {
                     x: 1,
@@ -301,7 +301,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     "chair"
                 )
@@ -312,7 +312,7 @@ export default class Preloader extends EventEmitter {
                         y: 1,
                         z: 1,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                        duration: 0.7,
                     },
                     "chair"
                 )
@@ -321,7 +321,7 @@ export default class Preloader extends EventEmitter {
                     {
                         y: 4 * Math.PI + Math.PI / 4,
                         ease: "power2.out",
-                        duration: 1,
+                        duration: 1.5,
                     },
                     "chair"
                 )
@@ -336,28 +336,23 @@ export default class Preloader extends EventEmitter {
         if (e.deltaY > 0) {
             this.removeEventListeners();
             this.playSecondIntro();
-        }
-    }
-
-    onTouch(e) {
-        this.initalY = e.touches[0].clientY;
-    }
-
-    onTouchMove(e) {
-        let currentY = e.touches[0].clientY;
-        let difference = this.initalY - currentY;
-        if (difference > 0) {
-            console.log("swipped up");
+        } else if (e.deltaY < 0) {
             this.removeEventListeners();
             this.playSecondIntro();
         }
-        this.intialY = null;
+    }
+
+    onKeyDown(e) {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+            e.preventDefault(); // Prevent default scroll behavior
+            this.removeEventListeners();
+            this.playSecondIntro();
+        }
     }
 
     removeEventListeners() {
         window.removeEventListener("wheel", this.scrollOnceEvent);
-        window.removeEventListener("touchstart", this.touchStart);
-        window.removeEventListener("touchmove", this.touchMove);
+        window.removeEventListener("keydown", this.keyDownEvent); // Remove keydown listener
     }
 
     async playIntro() {
@@ -365,12 +360,12 @@ export default class Preloader extends EventEmitter {
         await this.firstIntro();
         this.moveFlag = true;
         this.scrollOnceEvent = this.onScroll.bind(this);
-        this.touchStart = this.onTouch.bind(this);
-        this.touchMove = this.onTouchMove.bind(this);
+        this.keyDownEvent = this.onKeyDown.bind(this); // Bind keydown event
+
         window.addEventListener("wheel", this.scrollOnceEvent);
-        window.addEventListener("touchstart", this.touchStart);
-        window.addEventListener("touchmove", this.touchMove);
+        window.addEventListener("keydown", this.keyDownEvent); // Add keydown listener
     }
+
     async playSecondIntro() {
         this.moveFlag = false;
         await this.secondIntro();
