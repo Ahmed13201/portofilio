@@ -358,6 +358,7 @@ export default class Preloader extends EventEmitter {
         window.removeEventListener("wheel", this.scrollOnceEvent);
         window.removeEventListener("touchstart", this.touchStart);
         window.removeEventListener("touchmove", this.touchMove);
+        window.removeEventListener("keydown", this.keyDownEvent);
     }
 
     async playIntro() {
@@ -367,10 +368,19 @@ export default class Preloader extends EventEmitter {
         this.scrollOnceEvent = this.onScroll.bind(this);
         this.touchStart = this.onTouch.bind(this);
         this.touchMove = this.onTouchMove.bind(this);
+        this.keyDownEvent = this.handleKeyDown.bind(this);
+        window.addEventListener("keydown", this.keyDownEvent);
         window.addEventListener("wheel", this.scrollOnceEvent);
         window.addEventListener("touchstart", this.touchStart);
         window.addEventListener("touchmove", this.touchMove);
     }
+    handleKeyDown(e) {
+    const keys = ["ArrowDown", "PageDown"];
+    if (keys.includes(e.key)) {
+        this.removeEventListeners();
+        this.playSecondIntro();
+    }
+}
     async playSecondIntro() {
         this.moveFlag = false;
         await this.secondIntro();
