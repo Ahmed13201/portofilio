@@ -1,19 +1,15 @@
 {
-  "name": "Portfolio",
+  "name": "portofilio",
   "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
   "devDependencies": {
-    "@ashthornton/asscroll": "^2.0.7",
+    "@types/bun": "latest",
     "eslint": "^9.39.1",
-    "events": "^3.3.0",
-    "gsap": "^3.10.4",
-    "lil-gui": "^0.16.1",
-    "three": "^0.181.2",
     "vite": "^7.2.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "three": "^0.181.2"
   }
 }
